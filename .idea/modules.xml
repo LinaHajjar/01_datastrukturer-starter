@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/01_datastrukturer-starter.iml" filepath="$PROJECT_DIR$/.idea/01_datastrukturer-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/out.iml" filepath="$PROJECT_DIR$/out.iml" />
     </modules>
   </component>
 </project>

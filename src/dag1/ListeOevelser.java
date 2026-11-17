@@ -24,8 +24,27 @@ public class ListeOevelser {
     static void opgave1() {
         System.out.println("--- Opgave 1 ---");
         // TODO: opgave 1.1: Opret en List<String> med navnet playliste (brug ArrayList)
+        List<String> playListe = new ArrayList<>();
+        playListe.add("Hey Jude");
+        playListe.add("Hey Jude (Remix)");
+        playListe.add("sang 2");
+        playListe.add("sang3");
+        playListe.add("sang4");
+
         // TODO: opgave 1.2: Tilføj 5 sangtitler - lad én af dem forekomme to gange
+        playListe.add("sang6");
+        playListe.add("sang6");
+        playListe.add("lina1");
+
         // TODO: opgave 1.3: Udskriv listen, antal sange, den første og den sidste sang
+        System.out.println(playListe);
+        System.out.println("antal sange: "+ playListe.size());
+        System.out.println("første: " + playListe.get(0));
+        //System.out.println("første: " + playListe.getFirst());
+        System.out.println("Sidste: " + playListe.getLast());
+
+
+
     }
 
     // Opgave 2: Indsæt, fjern og søg
