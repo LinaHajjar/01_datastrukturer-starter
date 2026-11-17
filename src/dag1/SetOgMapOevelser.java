@@ -51,8 +51,35 @@ public class SetOgMapOevelser {
         afspillet.add("Imagine");
 
         // Opgave 8.1: TODO: Opret et Map<String, Integer>, der tæller hvor mange gange hver sang er afspillet
+        Map<String, Integer> antal = new HashMap<>();
+        for (String sang : afspillet) {
+            if (antal.containsKey(sang)) {
+                antal.put(sang, antal.get(sang) + 1);
+            } else {
+                antal.put(sang, 1);
+            }
+            // Kortere alternativ: antal.put(sang, antal.getOrDefault(sang, 0) + 1);
+        }
+        System.out.println(antal);
+
+
         // Opgave 8.2: TODO: Udskriv "<sang> er afspillet <antal> gange" for hver sang (brug keySet())
+        for (String sang : antal.keySet()) {
+            System.out.println(sang + " er afspillet " + antal.get(sang) + " gange");
+        }
+
         // Opgave 8.3: TODO: Find og udskriv den mest afspillede sang
+        String mestPlayed= null;
+        int max=0;
+        for(String sang: antal.keySet()){
+            int a=antal.get(sang);
+            if (a>max){
+                max=a;
+                mestPlayed=sang;
+            }
+        }
+        System.out.println("most played: " + mestPlayed + " antal gange: " + max);
+
     }
 
     // Opgave 9: TreeMap
@@ -60,8 +87,19 @@ public class SetOgMapOevelser {
         System.out.println("--- Opgave 9 ---");
         // Opgave 9.1: TODO: Opret et TreeMap<String, Integer> med sangtitel -> udgivelsesår
         //       Purple Rain 1984, Hey Jude 1968, Imagine 1971, Bohemian Rhapsody 1975
+
+        Map<String, Integer> udgivelsesaar = new TreeMap<>();
+        udgivelsesaar.put("Purple Rain", 1984);
+        udgivelsesaar.put("Hey Jude", 1968);
+        udgivelsesaar.put("Imagine", 1971);
+        udgivelsesaar.put("Bohemian Rhapsody", 1975);
+
+
         // Opgave 9.2: TODO: Udskriv det. Hvilken rækkefølge får du? Hvorfor?
+        System.out.println(udgivelsesaar); // sorteret alfabetisk efter key
+
     }
+
 
     // hjælpemetode
     static List<String> lavKunstnerListe() {

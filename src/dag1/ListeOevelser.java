@@ -37,25 +37,39 @@ public class ListeOevelser {
         playListe.add("lina1");
 
         // TODO: opgave 1.3: Udskriv listen, antal sange, den første og den sidste sang
-        System.out.println(playListe);
-        System.out.println("antal sange: "+ playListe.size());
-        System.out.println("første: " + playListe.get(0));
+        //System.out.println(playListe);
+        //System.out.println("antal sange: "+ playListe.size());
+        //System.out.println("første: " + playListe.get(0));
         //System.out.println("første: " + playListe.getFirst());
-        System.out.println("Sidste: " + playListe.getLast());
-
-
+        //System.out.println("Sidste: " + playListe.getLast());
 
     }
 
     // Opgave 2: Indsæt, fjern og søg
     static void opgave2() {
-        System.out.println("--- Opgave 2 ---");
+        //System.out.println("--- Opgave 2 ---");
         List<String> playliste = lavPlayliste();
+
+
         // TODO: opgave 2.1: Indsæt "Imagine" på index 1 og udskriv
+        playliste.add(1, "Imagine");
+        //System.out.println("efter vi har tilføjet Imagine: " + playliste);
+
         // TODO: opgave 2.2: Fjern elementet på index 0 og udskriv
+        playliste.remove(0);
+        //System.out.println("efter vi har fjern elementet på index 0: "+ playliste);
+
         // TODO: opgave 2.3: Fjern "Purple Rain" (som objekt). Udskriv returværdien af remove
+        boolean fjernet= playliste.remove("Purple Rain");
+        //System.out.println("er Purple Rain fjernet?" + fjernet);
+        //System.out.println(playliste);
+
         // TODO: opgave 2.4: Undersøg med contains() om "Imagine" findes
+        //System.out.println("Indeholder Imagine? " + playliste.contains("Imagine"));
+
         // TODO: opgave 2.5: Find index for "Hey Jude" og for "Yesterday" med indexOf(). Hvad sker der?
+        //System.out.println("Index for Hey Jude: " + playliste.indexOf("Hey Jude"));
+        //System.out.println("Index for Yesterday: " + playliste.indexOf("Yesterday")); // -1
     }
 
     // Opgave 3: Gennemløb listen på to måder og tæl dubletter
@@ -63,8 +77,19 @@ public class ListeOevelser {
         System.out.println("--- Opgave 3 ---");
         List<String> playliste = lavPlayliste();
         //Opgave 3.1: TODO: Udskriv listen nummereret (1. ..., 2. ...) med en almindelig for-løkke
+        for(int i=0; i< playliste.size(); i++){
+            System.out.println( (i+1)+ ". " + playliste.get(i));
+        }
 
         //Opgave 3.2: TODO: Tæl med en for-each-løkke, hvor mange gange "Hey Jude" forekommer
+        int antal=0;
+        for (String sang: playliste){
+            if (sang.equals("Hey Jude")){
+                antal++;
+            }
+        }
+        System.out.println("der er " + antal+ " Hey Jude.");
+
     }
 
     // Opgave 4: Programmér mod interfacet List
@@ -98,10 +123,29 @@ public class ListeOevelser {
         // Opgave 5.1: TODO a: Prøv først at fjerne remix-sange inde i en for-each-løkke.
         //         Hvad sker der? Skriv fejlens navn ned og udkommentér koden.
 
+        /*for (String sang: playliste){ //en for each loop bruger et internet iterator når den iterarer gennem listen
+            //derfor man ikke kan slet imens man iterarer
+            if (sang.contains("Remix"))
+                playliste.remove(sang);
+        }*/
+
 
         // Opagve 5.2: TODO b: Løs det med en Iterator (hasNext(), next(), remove())
 
+        Iterator<String> it = playliste.iterator();
+
+        while (it.hasNext()){
+            String sang =it.next();
+
+            if (sang.contains("Remix")){
+                it.remove();
+            }
+        }
+
+
+
         System.out.println(playliste);
+
     }
 
     // hjælpemetode: giver en ny playliste hver gang
