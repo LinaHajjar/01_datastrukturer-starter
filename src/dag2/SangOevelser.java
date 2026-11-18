@@ -17,8 +17,8 @@ public class SangOevelser {
     public static void main(String[] args) {
         testEquals();         // Opgave 1
         testHashSet();        // Opgave 2
-        // testTreeSet();     // Opgave 3 - kaster en fejl, indtil Sang implementerer Comparable
-        // testMapMedSang();  // Opgave 5
+        testTreeSet();     // Opgave 3: kaster en fejl, indtil Sang implementerer Comparable
+        testMapMedSang();  // Opgave 5
         // testMapAfLister(); // Opgave 6 (ekstra)
     }
 
@@ -27,7 +27,7 @@ public class SangOevelser {
         Sang a = new Sang("Imagine", "John Lennon", 183);
         Sang b = new Sang("Imagine", "John Lennon", 190);   // anden længde
         Sang c = new Sang("Imagine", "A Perfect Circle", 288);
-        System.out.println("a.equals(b): " + a.equals(b) + "  (forventet true)");
+        System.out.println("a.equals(b): " + a.equals(b) + "  (forventet false)");
         System.out.println("a.equals(c): " + a.equals(c) + "  (forventet false)");
         System.out.println("a.equals(null): " + a.equals(null) + "  (forventet false)");
     }
@@ -55,7 +55,23 @@ public class SangOevelser {
         // TODO: Opret et Map<Sang, Integer> og tæl, hvor mange gange hver sang i lavSange() forekommer
         // TODO: Slå op med et NYT Sang-objekt: new Sang("Hey Jude", "The Beatles", 0)
         //       Hvorfor virker opslaget, selvom det er et andet objekt?
+
+        Map<Sang, Integer> afspilninger = new HashMap<>();
+
+        for (Sang s: lavSange()){
+            if (afspilninger.containsKey(s)){
+                afspilninger.put(s, afspilninger.get(s)+1);
+            }else{
+                afspilninger.put(s,1);
+            }
+        }
+        System.out.println(afspilninger);
     }
+
+
+
+
+
 
     static void testMapAfLister() {
         System.out.println("--- Opgave 6: Map<String, List<Sang>> ---");
