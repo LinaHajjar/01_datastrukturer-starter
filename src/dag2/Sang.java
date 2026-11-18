@@ -70,6 +70,8 @@ public class Sang implements Comparable<Sang> {   // Opgave 3: tilføj "implemen
     //   - sortér efter kunstner; ved samme kunstner efter titel
     //   - tip: String har selv en compareTo-metode
 
+
+
     public int compareTo(Sang anden) {
         // Opgave 3.3: Sortér efter kunstner, ved samme kunstner efter titel
         int resultat = kunstner.compareTo(anden.kunstner);
